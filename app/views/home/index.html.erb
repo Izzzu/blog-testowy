@@ -1,0 +1,28 @@
+ <% if !zalogowany? %>
+<% provide(:title, 'Strona główna') %>
+
+
+
+	  <div class="center hero-unit">
+
+          <h1> Witaj!</h1>
+
+          <section>
+            <h2>Chcesz przeglądać blog i dodawać komentarze?</h2>
+            <%=link_to "Zaloguj się", loguj_path, class: "btn btn-large btn-success" %>
+          </section>
+          <section>
+            <h2>Nie masz konta?</h2>
+            <%=link_to "Załóż", rejestracja_path, class: "btn btn-large btn-success" %>
+          </section>
+           </div>
+
+
+  <% else %>
+    <script type="text/javascript">
+          window.location.href="/posts"  // put your correct path in a string here
+    </script>
+
+  <% end %>
+
+

@@ -1,0 +1,16 @@
+<% if zalogowany? && current_user.admin? %>
+  <% provide(:title, 'Nowy post') %>
+  <h1>Nowy post</h1>
+
+  <%= render 'form' %>
+  <div class="right">
+    <%= link_to 'Powrót', posts_path %>
+  </div>
+<% else %>
+
+    <script type="text/javascript">
+      window.location.href="/home/index"
+    </script>
+
+<% end %>
+

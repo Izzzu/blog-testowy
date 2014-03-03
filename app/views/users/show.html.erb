@@ -1,0 +1,32 @@
+ <% if zalogowany? %>
+
+  <% provide(:title, @user.name) %>
+  <div class="row-fluid">
+       <aside class="span5">
+      <section>
+        <h1>
+          <%= gravatar_for @user %>
+          <%= @user.name %>
+        </h1>
+        <h5> <%= @user.email %> </h5>
+      </section>
+    </aside>
+    <div class="span6">
+      <% if @user.comments.any? %>
+        <h3>Komentarze (<%= @user.comments.count %>)</h3>
+        <ul class="comments">
+          <%= render @comments %>
+        </ul>
+        <%= will_paginate @comments %>
+      <% end %>
+    </div>
+  </div>
+
+<% else %>
+   <script type="text/javascript">
+     window.location.href="/posts"
+   </script>
+
+<% end %>
+
+
